@@ -15,18 +15,6 @@ DROP SCHEMA IF EXISTS `bdd_BorbosBlock` ;
 CREATE SCHEMA IF NOT EXISTS `bdd_BorbosBlock` DEFAULT CHARACTER SET utf8 ;
 USE `bdd_BorbosBlock` ;
 
--- -----------------------------------------------------
--- Table `bdd_BorbosBlock`.`usuarios`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bdd_BorbosBlock`.`usuarios` (
-  `idusuarios` INT NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idusuarios`))
-ENGINE = InnoDB;
-
-INSERT INTO `bdd_borbosblock`.`usuarios` (`idusuarios`, `username`, `password`) VALUES ('0', 'admin', 'admin');
-INSERT INTO `bdd_borbosblock`.`usuarios` (`idusuarios`, `username`, `password`) VALUES ('1', 'root', 'toor');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
