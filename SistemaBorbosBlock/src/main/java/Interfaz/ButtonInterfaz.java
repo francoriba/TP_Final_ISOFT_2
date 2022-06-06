@@ -1,6 +1,6 @@
 package Interfaz;
 
-import Entidad.Tipo;
+import Entity.Tipo;
 import PatterDesing.Observer;
 
 import javax.swing.*;
