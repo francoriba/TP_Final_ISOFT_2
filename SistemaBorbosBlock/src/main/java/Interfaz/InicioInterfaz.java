@@ -4,11 +4,16 @@
  */
 package Interfaz;
 
+import Controller.InicioController;
+
 /**
  *
  * @author gasto
  */
 public class InicioInterfaz extends javax.swing.JFrame {
+
+    InicioController inicioController;
+    private static int id_vigente;
 
     /**
      * Creates new form Ventana
@@ -17,6 +22,8 @@ public class InicioInterfaz extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        inicioController = new InicioController();
+        id_vigente = -1;
     }
 
     /**
@@ -39,9 +46,9 @@ public class InicioInterfaz extends javax.swing.JFrame {
         jButtonKeys = new javax.swing.JButton();
         jButtonPayment = new javax.swing.JButton();
         jPanelFondo = new javax.swing.JPanel();
-        jButtonAddNew = new javax.swing.JButton();
+        jButtonAddNew = new ButtonInterfaz();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new TablaInterfaz();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -192,7 +199,7 @@ public class InicioInterfaz extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -203,12 +210,12 @@ public class InicioInterfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
         jPanelFondo.setLayout(jPanelFondoLayout);
@@ -244,7 +251,7 @@ public class InicioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPasswordActionPerformed
 
     private void jButtonKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKeysActionPerformed
-
+        //inicioController.actionPerformed(evt,this);
     }//GEN-LAST:event_jButtonKeysActionPerformed
 
     private void jButtonPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPaymentActionPerformed
@@ -268,8 +275,13 @@ public class InicioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddNewActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+        int filaSeleccionada = tabla.getSelectedRow();
+        id_vigente = Integer.parseInt(tabla.getValueAt(filaSeleccionada,0).toString());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    public void setView(TablaInterfaz tablaInterfaz){
+        tabla = tablaInterfaz;
+    }
 
     /**
      * @param args the command line arguments
@@ -307,7 +319,7 @@ public class InicioInterfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAddNew;
+    private ButtonInterfaz jButtonAddNew;
     private javax.swing.JButton jButtonKeys;
     private javax.swing.JButton jButtonPassword;
     private javax.swing.JButton jButtonPayment;
@@ -320,6 +332,6 @@ public class InicioInterfaz extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonStrong;
     private javax.swing.JRadioButton jRadioButtonWeak;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private TablaInterfaz tabla;
     // End of variables declaration//GEN-END:variables
 }

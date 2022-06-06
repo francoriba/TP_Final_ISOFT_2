@@ -1,7 +1,7 @@
-package Logica;
+package Model;
 
 //Todo: implementar logica
-public class LoginLogica {
+public class LoginModel {
     public static boolean validarIngreso(String text, char[] password) {
         return true;
     }

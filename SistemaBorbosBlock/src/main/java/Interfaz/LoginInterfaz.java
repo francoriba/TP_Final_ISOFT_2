@@ -5,7 +5,7 @@
  */
 package Interfaz;
 
-import Logica.LoginLogica;
+import Model.LoginModel;
 
 import javax.swing.*;
 
@@ -127,7 +127,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUserActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        if (!LoginLogica.validarIngreso(jTextFieldUser.getText(), jPasswordFieldPassword.getPassword())) {
+        if (!LoginModel.validarIngreso(jTextFieldUser.getText(), jPasswordFieldPassword.getPassword())) {
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
             return;
         }else{
