@@ -1,6 +1,8 @@
 package Model;
 
+import Entity.PasswordEntity;
 import Interfaz.TablaInterfaz;
+import Repository.PasswordRepository;
 
 public class InicioModel {
 
