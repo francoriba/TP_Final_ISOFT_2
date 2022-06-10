@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Controller.LoginController;
 import Model.LoginModel;
 
 import javax.swing.*;
@@ -15,6 +16,10 @@ import javax.swing.*;
  */
 public class LoginInterfaz extends javax.swing.JFrame {
 
+    private String user;
+    private String password;
+    private LoginController loginController;
+
     /**
      * Creates new form LoginInterfaz
      */
@@ -22,6 +27,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        loginController = new LoginController();
     }
 
     /**
@@ -127,14 +133,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUserActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        if (!LoginModel.validarIngreso(jTextFieldUser.getText(), jPasswordFieldPassword.getText())) {
-            JOptionPane.showMessageDialog(null, "Datos incorrectos");
-            return;
-        }else{
-            new InicioInterfaz();
-            dispose();
-        }
-
+        login();
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jPasswordFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordActionPerformed
@@ -183,4 +182,10 @@ public class LoginInterfaz extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
+
+    private void login(){
+        user = jTextFieldUser.getText();
+        password = jPasswordFieldPassword.getText();
+        loginController.login(this, user, password);
+    }
 }

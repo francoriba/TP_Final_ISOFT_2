@@ -1,7 +1,7 @@
 package Interfaz;
 
 import Entity.Tipo;
-import PatterDesing.Observer;
+import Interfaces.Observer;
 
 import javax.swing.*;
 

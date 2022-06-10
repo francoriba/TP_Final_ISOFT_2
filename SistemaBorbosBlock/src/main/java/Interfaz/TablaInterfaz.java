@@ -1,7 +1,6 @@
 package Interfaz;
 
-import PatterDesing.Observer;
-import PatterDesing.Subject;
+import Interfaces.Observer;
 
 import javax.swing.*;
 

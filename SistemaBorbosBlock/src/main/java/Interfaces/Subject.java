@@ -1,4 +1,4 @@
-package PatterDesing;
+package Interfaces;
 
 public interface Subject {
     public void attach();
