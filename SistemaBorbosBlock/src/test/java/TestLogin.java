@@ -1,3 +1,7 @@
+import Controller.LoginController;
+import Model.LoginModel;
+import View.LoginView;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class TestLogin {
@@ -11,7 +15,8 @@ public class TestLogin {
      * Resultado esperado: Acceso a la vista general
      */
     public void shouldInitCorrectly() {
-//        LoginController loginController = new LoginController();
-//        loginController.login(new LoginInterfaz(), "root", "toor");
+        LoginModel loginModel = new LoginModel();
+        Assert.assertTrue(loginModel.iniciarSession("root", "toor"));
+
     }
 }
