@@ -1,7 +1,5 @@
 package Model;
 
-import Interfaz.InicioInterfaz;
-import Interfaz.LoginInterfaz;
 import Repository.HibernateUtil;
 
 import javax.swing.*;
@@ -15,7 +13,7 @@ public class LoginModel {
             return false;
     }
 
-    public void iniciarSession(LoginInterfaz loginInterfaz, String user, String password) {
+    public boolean iniciarSession(String user, String password) {
         boolean flag = false;
         try {
             flag = validarIngreso(user, password);
@@ -23,7 +21,6 @@ public class LoginModel {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }
-        loginInterfaz.dispose();
-        new InicioInterfaz();
+        return flag;
     }
 }

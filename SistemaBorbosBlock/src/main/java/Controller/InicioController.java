@@ -1,18 +1,29 @@
 package Controller;
 
-import Interfaz.InicioInterfaz;
-import Interfaz.TablaInterfaz;
 import Model.InicioModel;
+import View.InicioView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InicioController implements ActionListener {
+public class InicioController{
 
+    private InicioView view;
+    private InicioModel model;
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public InicioController(InicioView view, InicioModel model) {
+        this.view = view;
+        this.model = model;
+        view.addInicioListener(new InicioListener());
     }
+
+    class InicioListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            //Implement controller
+        }
+    }
+
+
 }

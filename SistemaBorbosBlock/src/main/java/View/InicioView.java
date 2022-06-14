@@ -2,28 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Interfaz;
+package View;
 
 import Controller.InicioController;
+
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author gasto
  */
-public class InicioInterfaz extends javax.swing.JFrame {
+public class InicioView extends javax.swing.JFrame {
 
-    InicioController inicioController;
-    private static int id_vigente;
+    private static int idRegistroVigente;
 
     /**
      * Creates new form Ventana
      */
-    public InicioInterfaz() {
+    public InicioView() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        inicioController = new InicioController();
-        id_vigente = -1;
+        idRegistroVigente = -1;
     }
 
     /**
@@ -36,6 +36,7 @@ public class InicioInterfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelBarraSuperior = new javax.swing.JPanel();
+        jLabelTitulo = new javax.swing.JLabel();
         jPanelBarraLateral = new javax.swing.JPanel();
         jPanelSecurity = new javax.swing.JPanel();
         jRadioButtonStrong = new javax.swing.JRadioButton();
@@ -46,9 +47,9 @@ public class InicioInterfaz extends javax.swing.JFrame {
         jButtonKeys = new javax.swing.JButton();
         jButtonPayment = new javax.swing.JButton();
         jPanelFondo = new javax.swing.JPanel();
-        jButtonAddNew = new ButtonInterfaz();
+        jButtonAddNew = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new TablaInterfaz();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -57,15 +58,18 @@ public class InicioInterfaz extends javax.swing.JFrame {
         jPanelBarraSuperior.setBackground(new java.awt.Color(239, 159, 159));
         jPanelBarraSuperior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/titulo_inicio.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanelBarraSuperiorLayout = new javax.swing.GroupLayout(jPanelBarraSuperior);
         jPanelBarraSuperior.setLayout(jPanelBarraSuperiorLayout);
         jPanelBarraSuperiorLayout.setHorizontalGroup(
             jPanelBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1096, Short.MAX_VALUE)
+            .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
         );
         jPanelBarraSuperiorLayout.setVerticalGroup(
             jPanelBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 86, Short.MAX_VALUE)
+            .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 90));
@@ -138,27 +142,12 @@ public class InicioInterfaz extends javax.swing.JFrame {
 
         jButtonPassword.setBackground(new java.awt.Color(250, 212, 212));
         jButtonPassword.setText("Password");
-        jButtonPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPasswordActionPerformed(evt);
-            }
-        });
 
         jButtonKeys.setBackground(new java.awt.Color(250, 212, 212));
         jButtonKeys.setText("Keys(.pub)");
-        jButtonKeys.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKeysActionPerformed(evt);
-            }
-        });
 
         jButtonPayment.setBackground(new java.awt.Color(250, 212, 212));
         jButtonPayment.setText("Payment Information");
-        jButtonPayment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPaymentActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelBarraLateralLayout = new javax.swing.GroupLayout(jPanelBarraLateral);
         jPanelBarraLateral.setLayout(jPanelBarraLateralLayout);
@@ -176,7 +165,7 @@ public class InicioInterfaz extends javax.swing.JFrame {
         jPanelBarraLateralLayout.setVerticalGroup(
             jPanelBarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBarraLateralLayout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(jButtonPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jButtonKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,37 +188,34 @@ public class InicioInterfaz extends javax.swing.JFrame {
             }
         });
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabla);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
         jPanelFondo.setLayout(jPanelFondoLayout);
         jPanelFondoLayout.setHorizontalGroup(
             jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFondoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFondoLayout.createSequentialGroup()
                 .addContainerGap(272, Short.MAX_VALUE)
-                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFondoLayout.createSequentialGroup()
-                        .addComponent(jButtonAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFondoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))))
+                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80))
         );
         jPanelFondoLayout.setVerticalGroup(
             jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,18 +231,6 @@ public class InicioInterfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPasswordActionPerformed
-        new AddPasswordInterfaz();
-    }//GEN-LAST:event_jButtonPasswordActionPerformed
-
-    private void jButtonKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKeysActionPerformed
-        //inicioController.actionPerformed(evt,this);
-    }//GEN-LAST:event_jButtonKeysActionPerformed
-
-    private void jButtonPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPaymentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPaymentActionPerformed
 
     private void jRadioButtonStrongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStrongActionPerformed
         // TODO add your handling code here:
@@ -275,13 +249,9 @@ public class InicioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddNewActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int filaSeleccionada = tabla.getSelectedRow();
-        id_vigente = Integer.parseInt(tabla.getValueAt(filaSeleccionada,0).toString());
+
     }//GEN-LAST:event_jTable1MouseClicked
 
-    public void setView(TablaInterfaz tablaInterfaz){
-        tabla = tablaInterfaz;
-    }
 
     /**
      * @param args the command line arguments
@@ -300,30 +270,31 @@ public class InicioInterfaz extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioInterfaz().setVisible(true);
+                new InicioView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ButtonInterfaz jButtonAddNew;
+    private javax.swing.JButton jButtonAddNew;
     private javax.swing.JButton jButtonKeys;
     private javax.swing.JButton jButtonPassword;
     private javax.swing.JButton jButtonPayment;
     private javax.swing.JLabel jLabelTitleSecurity;
+    private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBarraLateral;
     private javax.swing.JPanel jPanelBarraSuperior;
     private javax.swing.JPanel jPanelFondo;
@@ -332,6 +303,10 @@ public class InicioInterfaz extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonStrong;
     private javax.swing.JRadioButton jRadioButtonWeak;
     private javax.swing.JScrollPane jScrollPane1;
-    private TablaInterfaz tabla;
+    private javax.swing.JTable jTable1;
+
+    public void addInicioListener(ActionListener inicioListener) {
+        //implement listener
+    }
     // End of variables declaration//GEN-END:variables
 }

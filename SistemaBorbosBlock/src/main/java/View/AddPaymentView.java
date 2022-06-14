@@ -3,18 +3,18 @@
  * 
  * 
  */
-package Interfaz;
+package View;
 
 /**
  *
  * @author facul
  */
-public class AddPaymentInterfaz extends javax.swing.JFrame {
+public class AddPaymentView extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginInterfaz
      */
-    public AddPaymentInterfaz() {
+    public AddPaymentView() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
@@ -165,13 +165,13 @@ public class AddPaymentInterfaz extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddPaymentInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddPaymentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddPaymentInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddPaymentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddPaymentInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddPaymentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddPaymentInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddPaymentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -185,7 +185,7 @@ public class AddPaymentInterfaz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddPaymentInterfaz().setVisible(true);
+                new AddPaymentView().setVisible(true);
             }
         });
     }

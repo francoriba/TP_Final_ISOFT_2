@@ -3,32 +3,27 @@
  * 
  * 
  */
-package Interfaz;
-
-import Controller.LoginController;
-import Model.LoginModel;
-import java.awt.event.KeyEvent;
+package View;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author facul
  */
-public class LoginInterfaz extends javax.swing.JFrame {
+public class LoginView extends javax.swing.JFrame {
 
     private static String user;
     private static String password;
-    private static LoginController loginController;
 
     /**
      * Creates new form LoginInterfaz
      */
-    public LoginInterfaz() {
+    public LoginView() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        loginController = new LoginController();
     }
 
     /**
@@ -142,12 +137,11 @@ public class LoginInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        login();
+
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jTextFieldUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUserKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-            login();
+
     }//GEN-LAST:event_jTextFieldUserKeyPressed
 
     private void jPasswordFieldPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordMouseClicked
@@ -155,8 +149,7 @@ public class LoginInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordFieldPasswordMouseClicked
 
     private void jPasswordFieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-            login();
+
     }//GEN-LAST:event_jPasswordFieldPasswordKeyPressed
 
     private void jTextFieldUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserMouseClicked
@@ -180,20 +173,20 @@ public class LoginInterfaz extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginInterfaz().setVisible(true);
+                new LoginView().setVisible(true);
             }
         });
     }
@@ -206,9 +199,19 @@ public class LoginInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
 
-    private void login(){
-        user = jTextFieldUser.getText();
-        password = jPasswordFieldPassword.getText();
-        loginController.login(this, user, password);
+    public void addLoginListener(ActionListener actionListener){
+        jButtonLogin.addActionListener(actionListener);
+    }
+
+    public String getUser() {
+        return jTextFieldUser.getText();
+    }
+
+    public String getPassword() {
+        return jPasswordFieldPassword.getText();
+    }
+
+    public void showBadAcces() {
+        JOptionPane.showMessageDialog(null, "Acceso Incorrecto");
     }
 }
