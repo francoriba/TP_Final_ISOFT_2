@@ -1,7 +1,9 @@
 package Interfaces;
 
+import Entity.Tipo;
+
+//Los botones
 public interface Subject {
-    public void attach();
-    public void detach();
-    public void notifyObserver();
+    public void atach(Observer o);
+    public void notifyObserver(Tipo tipo);
 }

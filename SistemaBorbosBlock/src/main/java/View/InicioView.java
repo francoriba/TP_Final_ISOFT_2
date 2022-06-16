@@ -4,9 +4,12 @@
  */
 package View;
 
-import Controller.InicioController;
+import Entity.Tipo;
+import Interfaces.Subject;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -24,6 +27,7 @@ public class InicioView extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         idRegistroVigente = -1;
+        jButtonPassword.notifyObserver(Tipo.PAYMENT);
     }
 
     /**
@@ -35,6 +39,12 @@ public class InicioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        List<Subject> subjects = new ArrayList<>();
+        subjects.add(jButtonKeys);
+        subjects.add(jButtonPassword);
+        subjects.add(jButtonPayment);
+        tablaView = TablaView.getInstanciaUnica(subjects);
+
         jPanelBarraSuperior = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jPanelBarraLateral = new javax.swing.JPanel();
@@ -43,13 +53,13 @@ public class InicioView extends javax.swing.JFrame {
         jRadioButtonMedium = new javax.swing.JRadioButton();
         jRadioButtonWeak = new javax.swing.JRadioButton();
         jLabelTitleSecurity = new javax.swing.JLabel();
-        jButtonPassword = new javax.swing.JButton();
-        jButtonKeys = new javax.swing.JButton();
-        jButtonPayment = new javax.swing.JButton();
+        jButtonPassword = new ButtonView(tablaView, Tipo.PASSWORD);
+        jButtonKeys = new ButtonView(tablaView, Tipo.KEY);
+        jButtonPayment = new ButtonView(tablaView, Tipo.PAYMENT);
         jPanelFondo = new javax.swing.JPanel();
         jButtonAddNew = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -188,7 +198,7 @@ public class InicioView extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -199,12 +209,12 @@ public class InicioView extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaView);
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
         jPanelFondo.setLayout(jPanelFondoLayout);
@@ -290,9 +300,9 @@ public class InicioView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddNew;
-    private javax.swing.JButton jButtonKeys;
-    private javax.swing.JButton jButtonPassword;
-    private javax.swing.JButton jButtonPayment;
+    private ButtonView jButtonKeys;
+    private ButtonView jButtonPassword;
+    private ButtonView jButtonPayment;
     private javax.swing.JLabel jLabelTitleSecurity;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBarraLateral;
@@ -303,7 +313,7 @@ public class InicioView extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonStrong;
     private javax.swing.JRadioButton jRadioButtonWeak;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private TablaView tablaView;
 
     public void addInicioListener(ActionListener inicioListener) {
         //implement listener
