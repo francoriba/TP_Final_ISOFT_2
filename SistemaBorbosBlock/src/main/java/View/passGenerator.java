@@ -30,10 +30,10 @@ public class passGenerator extends javax.swing.JFrame {
         JpassLength = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButtonApache = new javax.swing.JRadioButton();
+        jRadioButtonRandom = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonGenerate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(250, 212, 212));
@@ -53,20 +53,30 @@ public class passGenerator extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Select the algorithm of generation");
 
-        jRadioButton1.setText("Apache");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonApache.setText("Apache");
+        jRadioButtonApache.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jRadioButtonApacheActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Random");
+        jRadioButtonRandom.setText("Random");
+        jRadioButtonRandom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRandomActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_login.png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(190, 22, 29));
-        jButton1.setText("Generate");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonGenerate.setBackground(new java.awt.Color(190, 22, 29));
+        jButtonGenerate.setText("Generate");
+        jButtonGenerate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonGenerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGenerateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,7 +87,7 @@ public class passGenerator extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(226, 226, 226)
-                        .addComponent(jRadioButton2))
+                        .addComponent(jRadioButtonRandom))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(JpassLength, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -85,7 +95,7 @@ public class passGenerator extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton1)))
+                        .addComponent(jRadioButtonApache)))
                 .addGap(41, 41, 41))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(134, 134, 134)
@@ -93,7 +103,7 @@ public class passGenerator extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(117, 117, 117))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,11 +118,11 @@ public class passGenerator extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jRadioButton1))
+                    .addComponent(jRadioButtonApache))
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
+                .addComponent(jRadioButtonRandom)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
 
@@ -134,9 +144,18 @@ public class passGenerator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    private void jRadioButtonApacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonApacheActionPerformed
+        jRadioButtonRandom.setSelected(false);
+    }//GEN-LAST:event_jRadioButtonApacheActionPerformed
+
+    private void jButtonGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerateActionPerformed
+        
+    }//GEN-LAST:event_jButtonGenerateActionPerformed
+
+    private void jRadioButtonRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRandomActionPerformed
+        jRadioButtonApache.setSelected(false);
+
+    }//GEN-LAST:event_jRadioButtonRandomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,12 +194,12 @@ public class passGenerator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JpassLength;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonGenerate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButtonApache;
+    private javax.swing.JRadioButton jRadioButtonRandom;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
