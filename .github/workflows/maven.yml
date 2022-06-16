@@ -5,9 +5,9 @@ name: BorbosCI
 
 on:
   push:
-    branches: [ "main_develop" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main_develop" ]
+    branches: [ "main" ]
 
 jobs:
   build:
