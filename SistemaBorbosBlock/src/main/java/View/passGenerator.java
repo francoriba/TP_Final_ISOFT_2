@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
 
@@ -8,7 +8,7 @@ package View;
  *
  * @author gasto
  */
-public class passGenerator extends javax.swing.JPanel {
+public class passGenerator extends javax.swing.JFrame {
 
     /**
      * Creates new form passGenerator
@@ -26,47 +26,140 @@ public class passGenerator extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        JpassLength = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        Jpasslong = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jRadioButtonApache = new javax.swing.JRadioButton();
+        jRadioButtonRandom = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonGenerate = new javax.swing.JButton();
 
-        jTextField1.setText("jTextField1");
-
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(250, 212, 212));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setResizable(false);
 
-        Jpasslong.setBackground(new java.awt.Color(239, 159, 159));
-        Jpasslong.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(250, 212, 212));
+
+        JpassLength.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JpassLength.setText("Select the password length (min 0 - max 20)");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JpasslongActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        add(Jpasslong, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 190, 30));
 
-        jLabel1.setText("Select the password length ( from 0 to 20 )");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Select the algorithm of generation");
 
-        jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+        jRadioButtonApache.setText("Apache");
+        jRadioButtonApache.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonApacheActionPerformed(evt);
+            }
+        });
 
-        jRadioButton1.setText("jRadioButton1");
-        add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        jRadioButtonRandom.setText("Random");
+        jRadioButtonRandom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRandomActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("jRadioButton2");
-        add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_login.png"))); // NOI18N
 
-        jButton1.setText("jButton1");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
+        jButtonGenerate.setBackground(new java.awt.Color(190, 22, 29));
+        jButtonGenerate.setText("Generate");
+        jButtonGenerate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonGenerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGenerateActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(226, 226, 226)
+                        .addComponent(jRadioButtonRandom))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(JpassLength, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButtonApache)))
+                .addGap(41, 41, 41))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(64, 64, 64)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JpassLength, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jRadioButtonApache))
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButtonRandom)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(jButtonGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JpasslongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JpasslongActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JpasslongActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jRadioButtonApacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonApacheActionPerformed
+        jRadioButtonRandom.setSelected(false);
+    }//GEN-LAST:event_jRadioButtonApacheActionPerformed
+
+    private void jButtonGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerateActionPerformed
+        
+    }//GEN-LAST:event_jButtonGenerateActionPerformed
+
+    private void jRadioButtonRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRandomActionPerformed
+        jRadioButtonApache.setSelected(false);
+
+    }//GEN-LAST:event_jRadioButtonRandomActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -90,13 +183,6 @@ public class passGenerator extends javax.swing.JPanel {
             java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -107,12 +193,13 @@ public class passGenerator extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Jpasslong;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel JpassLength;
+    private javax.swing.JButton jButtonGenerate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButtonApache;
+    private javax.swing.JRadioButton jRadioButtonRandom;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
