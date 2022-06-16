@@ -7,6 +7,7 @@ package View;
 import Entity.Tipo;
 import Interfaces.Subject;
 
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -223,4 +224,17 @@ public class InicioView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private TablaView tablaView;
     // End of variables declaration//GEN-END:variables
+
+    public void addPasswordListener(ActionListener actionListener){
+        jButtonPassword.addActionListener(actionListener);
+    }
+    public void addBankCardListener(ActionListener actionListener){
+        jButtonPayment.addActionListener(actionListener);
+    }
+
+    public void addKeyListener(ActionListener actionListener){
+        jButtonKeys.addActionListener(actionListener);
+    }
+
+
 }

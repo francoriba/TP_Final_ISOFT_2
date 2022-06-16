@@ -1,5 +1,8 @@
 package Controller;
 
+import Model.BankCardModel;
+import Model.KeyModel;
+import Model.PasswordModel;
 import View.InicioView;
 import View.LoginView;
 import Model.LoginModel;
@@ -26,6 +29,12 @@ public class LoginController implements ActionListener{
         }else {
             view.dispose();
             InicioView inicioView = new InicioView();
+            KeyModel keyModel = new KeyModel();
+            BankCardModel bankCardModel = new BankCardModel();
+            PasswordModel passwordModel = new PasswordModel();
+            BankCardController bankCardController = new BankCardController(bankCardModel, inicioView);
+            PasswordController passwordController = new PasswordController(inicioView, passwordModel);
+            KeyController keyController = new KeyController(keyModel,inicioView);
         }
     }
 
