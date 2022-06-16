@@ -27,7 +27,6 @@ public class InicioView extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         idRegistroVigente = -1;
-        jButtonPassword.notifyObserver(Tipo.PAYMENT);
     }
 
     /**
@@ -39,27 +38,16 @@ public class InicioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        List<Subject> subjects = new ArrayList<>();
-        subjects.add(jButtonKeys);
-        subjects.add(jButtonPassword);
-        subjects.add(jButtonPayment);
-        tablaView = TablaView.getInstanciaUnica(subjects);
-
         jPanelBarraSuperior = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jPanelBarraLateral = new javax.swing.JPanel();
-        jPanelSecurity = new javax.swing.JPanel();
-        jRadioButtonStrong = new javax.swing.JRadioButton();
-        jRadioButtonMedium = new javax.swing.JRadioButton();
-        jRadioButtonWeak = new javax.swing.JRadioButton();
-        jLabelTitleSecurity = new javax.swing.JLabel();
-        jButtonPassword = new ButtonView(tablaView, Tipo.PASSWORD);
-        jButtonKeys = new ButtonView(tablaView, Tipo.KEY);
-        jButtonPayment = new ButtonView(tablaView, Tipo.PAYMENT);
+        jButtonPassword = new javax.swing.JButton();
+        jButtonKeys = new javax.swing.JButton();
+        jButtonPayment = new javax.swing.JButton();
         jPanelFondo = new javax.swing.JPanel();
         jButtonAddNew = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -87,69 +75,6 @@ public class InicioView extends javax.swing.JFrame {
         jPanelBarraLateral.setBackground(new java.awt.Color(239, 159, 159));
         jPanelBarraLateral.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jPanelSecurity.setBackground(new java.awt.Color(250, 212, 212));
-
-        jRadioButtonStrong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButtonStrong.setText("Strong");
-        jRadioButtonStrong.setEnabled(false);
-        jRadioButtonStrong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonStrongActionPerformed(evt);
-            }
-        });
-
-        jRadioButtonMedium.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButtonMedium.setText("Medium");
-        jRadioButtonMedium.setEnabled(false);
-        jRadioButtonMedium.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMediumActionPerformed(evt);
-            }
-        });
-
-        jRadioButtonWeak.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButtonWeak.setText("Weak");
-        jRadioButtonWeak.setEnabled(false);
-        jRadioButtonWeak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonWeakActionPerformed(evt);
-            }
-        });
-
-        jLabelTitleSecurity.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabelTitleSecurity.setText("Security");
-
-        javax.swing.GroupLayout jPanelSecurityLayout = new javax.swing.GroupLayout(jPanelSecurity);
-        jPanelSecurity.setLayout(jPanelSecurityLayout);
-        jPanelSecurityLayout.setHorizontalGroup(
-            jPanelSecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSecurityLayout.createSequentialGroup()
-                .addGroup(jPanelSecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSecurityLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanelSecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonWeak)
-                            .addComponent(jRadioButtonMedium)
-                            .addComponent(jRadioButtonStrong)))
-                    .addGroup(jPanelSecurityLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabelTitleSecurity, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanelSecurityLayout.setVerticalGroup(
-            jPanelSecurityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSecurityLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabelTitleSecurity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButtonStrong)
-                .addGap(26, 26, 26)
-                .addComponent(jRadioButtonMedium)
-                .addGap(26, 26, 26)
-                .addComponent(jRadioButtonWeak)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
         jButtonPassword.setBackground(new java.awt.Color(250, 212, 212));
         jButtonPassword.setText("Password");
 
@@ -168,8 +93,7 @@ public class InicioView extends javax.swing.JFrame {
                 .addGroup(jPanelBarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonKeys, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonPayment, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                    .addComponent(jButtonPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelSecurity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelBarraLateralLayout.setVerticalGroup(
@@ -181,9 +105,7 @@ public class InicioView extends javax.swing.JFrame {
                 .addComponent(jButtonKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(jButtonPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
-                .addComponent(jPanelSecurity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(377, 377, 377))
         );
 
         getContentPane().add(jPanelBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 170, 660));
@@ -198,7 +120,7 @@ public class InicioView extends javax.swing.JFrame {
             }
         });
 
-        tablaView.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -209,12 +131,12 @@ public class InicioView extends javax.swing.JFrame {
 
             }
         ));
-        tablaView.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablaView);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
         jPanelFondo.setLayout(jPanelFondoLayout);
@@ -241,18 +163,6 @@ public class InicioView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRadioButtonStrongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonStrongActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonStrongActionPerformed
-
-    private void jRadioButtonMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMediumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonMediumActionPerformed
-
-    private void jRadioButtonWeakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonWeakActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonWeakActionPerformed
 
     private void jButtonAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddNewActionPerformed
         // TODO add your handling code here:
@@ -300,23 +210,14 @@ public class InicioView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddNew;
-    private ButtonView jButtonKeys;
-    private ButtonView jButtonPassword;
-    private ButtonView jButtonPayment;
-    private javax.swing.JLabel jLabelTitleSecurity;
+    private javax.swing.JButton jButtonKeys;
+    private javax.swing.JButton jButtonPassword;
+    private javax.swing.JButton jButtonPayment;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBarraLateral;
     private javax.swing.JPanel jPanelBarraSuperior;
     private javax.swing.JPanel jPanelFondo;
-    private javax.swing.JPanel jPanelSecurity;
-    private javax.swing.JRadioButton jRadioButtonMedium;
-    private javax.swing.JRadioButton jRadioButtonStrong;
-    private javax.swing.JRadioButton jRadioButtonWeak;
     private javax.swing.JScrollPane jScrollPane1;
-    private TablaView tablaView;
-
-    public void addInicioListener(ActionListener inicioListener) {
-        //implement listener
-    }
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

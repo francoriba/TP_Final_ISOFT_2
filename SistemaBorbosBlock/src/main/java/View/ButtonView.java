@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ButtonView extends JButton implements Subject{
 
-    private Observer observer;
+    private Observer observer; //tabla
     private Tipo tipo;
 
     public ButtonView(Observer observer, Tipo tipo){

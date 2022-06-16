@@ -12,7 +12,6 @@ public class TablaView extends JTable implements Observer{
     private List<Subject> subjects;
 
     private TablaView(List<Subject> subjects){
-        //todo: revisar si se repite el atach(); tambien cual va primero
         this.subjects = subjects;
     }
 
@@ -34,7 +33,7 @@ public class TablaView extends JTable implements Observer{
                 // code block
                 break;
             case PAYMENT:
-                System.out.println("Anda bien el observer");
+                System.out.println("Anda bien el observer"+tipo);
                 // code block
                 break;
             case PASSWORD:
