@@ -39,6 +39,10 @@ public class AddPasswordView extends javax.swing.JFrame {
         jTextFieldUrl = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
         jButtonGenerate = new javax.swing.JButton();
+        Jurl = new javax.swing.JLabel();
+        Juser = new javax.swing.JLabel();
+        Jpassword = new javax.swing.JLabel();
+        Jemail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(250, 212, 212));
@@ -47,7 +51,6 @@ public class AddPasswordView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(250, 212, 212));
 
         jButtonAdd.setBackground(new java.awt.Color(190, 22, 29));
-        jButtonAdd.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAdd.setText("Add");
         jButtonAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -57,9 +60,7 @@ public class AddPasswordView extends javax.swing.JFrame {
         });
 
         jTextFieldUser.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldUser.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldUser.setText("user");
         jTextFieldUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,9 +69,7 @@ public class AddPasswordView extends javax.swing.JFrame {
         });
 
         jTextFieldPassword.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldPassword.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldPassword.setText("password");
         jTextFieldPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,11 +78,10 @@ public class AddPasswordView extends javax.swing.JFrame {
         });
 
         jLabel1.setBackground(new java.awt.Color(239, 159, 159));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/titulo_inicio.png"))); // NOI18N
 
         jTextFieldUrl.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldUrl.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldUrl.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldUrl.setText("url");
         jTextFieldUrl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldUrl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,9 +90,7 @@ public class AddPasswordView extends javax.swing.JFrame {
         });
 
         jTextFieldEmail.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldEmail.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldEmail.setText("email");
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +99,6 @@ public class AddPasswordView extends javax.swing.JFrame {
         });
 
         jButtonGenerate.setBackground(new java.awt.Color(190, 22, 29));
-        jButtonGenerate.setForeground(new java.awt.Color(0, 0, 0));
         jButtonGenerate.setText("Generate");
         jButtonGenerate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonGenerate.addActionListener(new java.awt.event.ActionListener() {
@@ -112,12 +107,32 @@ public class AddPasswordView extends javax.swing.JFrame {
             }
         });
 
+        Jurl.setText("URL:");
+
+        Juser.setText("USER:");
+
+        Jpassword.setText("PASSWORD:");
+
+        Jemail.setText("EMAIL:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Jpassword)
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Jemail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Jurl)
+                            .addComponent(Juser))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
@@ -126,22 +141,31 @@ public class AddPasswordView extends javax.swing.JFrame {
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                     .addComponent(jButtonGenerate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(49, 49, 49))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 71, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jurl))
                 .addGap(18, 18, 18)
-                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Juser))
                 .addGap(18, 18, 18)
-                .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jpassword))
                 .addGap(18, 18, 18)
-                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jemail))
                 .addGap(38, 38, 38)
                 .addComponent(jButtonGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -224,6 +248,10 @@ public class AddPasswordView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Jemail;
+    private javax.swing.JLabel Jpassword;
+    private javax.swing.JLabel Jurl;
+    private javax.swing.JLabel Juser;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonGenerate;
     private javax.swing.JLabel jLabel1;

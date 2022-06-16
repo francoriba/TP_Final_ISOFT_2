@@ -35,6 +35,9 @@ public class AddPaymentView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextFielUrl = new javax.swing.JTextField();
         jTextFieldCreditCardNumber = new javax.swing.JTextField();
+        Jurl = new javax.swing.JLabel();
+        JsecureCode = new javax.swing.JLabel();
+        JcardNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(250, 212, 212));
@@ -43,7 +46,6 @@ public class AddPaymentView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(250, 212, 212));
 
         jButtonAdd.setBackground(new java.awt.Color(190, 22, 29));
-        jButtonAdd.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAdd.setText("Add");
         jButtonAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -53,9 +55,7 @@ public class AddPaymentView extends javax.swing.JFrame {
         });
 
         jTextFieldSecureCode.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldSecureCode.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldSecureCode.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldSecureCode.setText("secure code");
         jTextFieldSecureCode.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldSecureCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,11 +64,10 @@ public class AddPaymentView extends javax.swing.JFrame {
         });
 
         jLabel1.setBackground(new java.awt.Color(239, 159, 159));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/titulo_inicio.png"))); // NOI18N
 
         jTextFielUrl.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFielUrl.setForeground(new java.awt.Color(0, 0, 0));
         jTextFielUrl.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFielUrl.setText("url");
         jTextFielUrl.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFielUrl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,9 +76,7 @@ public class AddPaymentView extends javax.swing.JFrame {
         });
 
         jTextFieldCreditCardNumber.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldCreditCardNumber.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldCreditCardNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCreditCardNumber.setText("credit card number");
         jTextFieldCreditCardNumber.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldCreditCardNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,32 +84,53 @@ public class AddPaymentView extends javax.swing.JFrame {
             }
         });
 
+        Jurl.setText("URL:");
+
+        JsecureCode.setText("SECURITY CODE:");
+
+        JcardNumber.setText("NUMBER:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldSecureCode, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                    .addComponent(jTextFielUrl, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldCreditCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
-                .addGap(49, 49, 49))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Jurl, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JsecureCode, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JcardNumber, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextFieldSecureCode, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                            .addComponent(jTextFielUrl, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldCreditCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
+                        .addGap(49, 49, 49))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(jTextFielUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFielUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jurl))
                 .addGap(40, 40, 40)
-                .addComponent(jTextFieldSecureCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSecureCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JsecureCode))
                 .addGap(40, 40, 40)
-                .addComponent(jTextFieldCreditCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCreditCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JcardNumber))
                 .addGap(46, 46, 46)
                 .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
@@ -191,6 +209,9 @@ public class AddPaymentView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JcardNumber;
+    private javax.swing.JLabel JsecureCode;
+    private javax.swing.JLabel Jurl;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
