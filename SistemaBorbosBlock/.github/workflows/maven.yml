@@ -24,7 +24,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Step 3 - Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file SistemaBorbosBlock/pom.xml
     - name:  Step 4 - List the current directory
       run: ls -a
     - name: Step 5 - What is the target folder? 
