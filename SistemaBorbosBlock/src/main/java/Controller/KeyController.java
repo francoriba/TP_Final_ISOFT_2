@@ -1,5 +1,6 @@
 package Controller;
 
+import Entity.TipoRegistro;
 import Model.KeyModel;
 import View.InicioView;
 
@@ -22,5 +23,6 @@ public class KeyController implements Controller, ActionListener {
     public void actionPerformed(ActionEvent e) {
         DefaultTableModel modelTable = model.getModeloTabla();
         view.setModelTable(modelTable);
+        view.setTipoVigente(TipoRegistro.KEY);
     }
 }

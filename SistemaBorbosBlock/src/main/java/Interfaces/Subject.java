@@ -1,9 +1,9 @@
 package Interfaces;
 
-import Entity.Tipo;
+import Entity.TipoRegistro;
 
 //Los botones
 public interface Subject {
     public void atach(Observer o);
-    public void notifyObserver(Tipo tipo);
+    public void notifyObserver(TipoRegistro tipoRegistro);
 }

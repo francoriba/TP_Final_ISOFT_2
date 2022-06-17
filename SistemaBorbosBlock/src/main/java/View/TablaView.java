@@ -1,6 +1,6 @@
 package View;
 
-import Entity.Tipo;
+import Entity.TipoRegistro;
 import Interfaces.Observer;
 import Interfaces.Subject;
 
@@ -27,13 +27,13 @@ public class TablaView extends JTable implements Observer{
     }
 
     @Override
-    public void update(Tipo tipo) {
-        switch(tipo) {
+    public void update(TipoRegistro tipoRegistro) {
+        switch(tipoRegistro) {
             case KEY:
                 // code block
                 break;
             case PAYMENT:
-                System.out.println("Anda bien el observer"+tipo);
+                System.out.println("Anda bien el observer"+ tipoRegistro);
                 // code block
                 break;
             case PASSWORD:

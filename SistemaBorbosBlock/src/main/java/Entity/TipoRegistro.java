@@ -1,5 +1,5 @@
 package Entity;
 
-public enum Tipo {
+public enum TipoRegistro {
     PASSWORD, KEY, PAYMENT
 }

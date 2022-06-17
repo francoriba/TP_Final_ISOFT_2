@@ -1,6 +1,8 @@
 import Controller.LoginController;
 import Entity.KeyEntity;
 import Entity.PasswordEntity;
+import Model.ApacheGenerator;
+import Model.RandomGenerator;
 import Repository.KeyRepository;
 import Repository.PasswordRepository;
 import View.LoginView;

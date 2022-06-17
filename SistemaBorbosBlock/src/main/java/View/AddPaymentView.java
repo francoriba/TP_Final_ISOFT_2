@@ -18,6 +18,7 @@ public class AddPaymentView extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
     }
 
     /**

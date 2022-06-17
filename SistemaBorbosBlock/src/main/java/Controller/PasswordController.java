@@ -1,5 +1,6 @@
 package Controller;
 
+import Entity.TipoRegistro;
 import Model.PasswordModel;
 import View.InicioView;
 
@@ -22,5 +23,6 @@ public class PasswordController implements Controller, ActionListener {
     public void actionPerformed(ActionEvent e) {
         DefaultTableModel modelTable = model.getModeloTabla();
         view.setModelTable(modelTable);
+        view.setTipoVigente(TipoRegistro.PASSWORD);
     }
 }
