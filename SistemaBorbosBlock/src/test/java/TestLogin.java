@@ -16,7 +16,7 @@ public class TestLogin {
      */
     public void shouldInitCorrectly() {
         LoginModel loginModel = new LoginModel();
-        Assert.assertTrue(loginModel.iniciarSession("root", "toor"));
+        Assert.assertTrue(loginModel.iniciarSession("root", "root"));
 
     }
 }
