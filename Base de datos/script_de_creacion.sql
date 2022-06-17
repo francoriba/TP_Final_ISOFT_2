@@ -21,7 +21,7 @@ USE `bdd_borbosblock` ;
 -- Table `bdd_borbosblock`.`key`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`key` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `path` VARCHAR(45) NOT NULL,
   `key` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 -- Table `bdd_borbosblock`.`password`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`password` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `userName` VARCHAR(45) NOT NULL,
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `bdd_borbosblock`.`banckCard`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`banckCard` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `owner` VARCHAR(45) NULL,
   `number` VARCHAR(16) NOT NULL,
   `secNumber` VARCHAR(3) NOT NULL,

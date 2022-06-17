@@ -13,6 +13,7 @@ import Model.BankCardModel;
 import Model.KeyModel;
 import Model.PasswordModel;
 
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -249,4 +250,7 @@ public class InicioView extends javax.swing.JFrame {
     }
 
 
+    public void setModelTable(DefaultTableModel modelTable) {
+        tablaView.setModel(modelTable);
+    }
 }

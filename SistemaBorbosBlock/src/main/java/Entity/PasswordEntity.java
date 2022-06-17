@@ -20,10 +20,18 @@ public class PasswordEntity extends RegisterEntity{
     @Column(name = "password")
     private String password;
 
-    public PasswordEntity(String url, String user, String password) {
+    public PasswordEntity(int id, String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUrl() {
@@ -49,4 +57,6 @@ public class PasswordEntity extends RegisterEntity{
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

@@ -6,15 +6,13 @@ import Repository.PasswordRepository;
 import View.LoginView;
 import Model.LoginModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         LoginView loginView = new LoginView();
         LoginModel loginModel = new LoginModel();
         LoginController loginController = new LoginController(loginModel, loginView);
     }
-//    public static void main(String[] args) {
-//        PasswordRepository passwordRepository = new PasswordRepository();
-//        PasswordEntity passwordEntity = new PasswordEntity("url", "user", "password");
-//        passwordRepository.save(passwordEntity);
-//    }
 }
