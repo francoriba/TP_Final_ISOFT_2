@@ -5,6 +5,9 @@
  */
 package View;
 
+import Entity.PasswordEntity;
+import Repository.PasswordRepository;
+
 import javax.swing.*;
 
 /**
@@ -205,7 +208,9 @@ public class AddPasswordView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldEmailActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        JOptionPane.showMessageDialog(null, "Add new password");
+        PasswordRepository passwordRepository = new PasswordRepository();
+        PasswordEntity password = new PasswordEntity(0, jTextFieldUrl.getText(), jTextFieldUser.getText(), jTextFieldPassword.getText());
+        passwordRepository.save(password);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerateActionPerformed

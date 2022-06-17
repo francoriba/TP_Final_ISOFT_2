@@ -8,6 +8,8 @@ import Interfaces.PasswordGenerator;
 import Model.ApacheGenerator;
 import Model.RandomGenerator;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 /**
  *
  * @author gasto
@@ -37,7 +39,7 @@ public class passGenerator extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         JpassLength = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldPassLength = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jRadioButtonApache = new javax.swing.JRadioButton();
         jRadioButtonRandom = new javax.swing.JRadioButton();
@@ -53,7 +55,7 @@ public class passGenerator extends javax.swing.JFrame {
         JpassLength.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         JpassLength.setText("Select the password length (min 0 - max 20)");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPassLength.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
@@ -100,7 +102,7 @@ public class passGenerator extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(JpassLength, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldPassLength, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
@@ -123,7 +125,7 @@ public class passGenerator extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JpassLength, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldPassLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
@@ -159,9 +161,9 @@ public class passGenerator extends javax.swing.JFrame {
 
     private void jButtonGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerateActionPerformed
         if(jRadioButtonApache.isSelected()){
-            setPasswordGenerator(new ApacheGenerator(10));
+            setPasswordGenerator(new ApacheGenerator(Integer.parseInt(jTextFieldPassLength.getText())));
         }else{
-            setPasswordGenerator(new RandomGenerator(10, 10 , 10));
+            setPasswordGenerator(new RandomGenerator(Integer.parseInt(jTextFieldPassLength.getText()), 10 , 10));
         }
         String password = passwordGenerator.generator();
         addPasswordView.setTextFieldPassword(password);
@@ -216,7 +218,7 @@ public class passGenerator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButtonApache;
     private javax.swing.JRadioButton jRadioButtonRandom;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldPassLength;
     // End of variables declaration//GEN-END:variables
 
     public void setPasswordGenerator(PasswordGenerator passwordGenerator){
