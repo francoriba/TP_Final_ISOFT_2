@@ -14,8 +14,8 @@ public class TestLogin {
      * Ejecución del test (pasos):  Rellenar campo de usuario y contraseña con datos correctos
      * Resultado esperado: Acceso a la vista general
      */
-/*    public void shouldInitCorrectly() {
+    public void shouldInitCorrectly() {
         LoginModel loginModel = new LoginModel();
         Assert.assertTrue(loginModel.iniciarSession("root", "root"));
-    }*/
+    }
 }
