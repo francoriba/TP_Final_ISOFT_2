@@ -209,7 +209,7 @@ public class AddPasswordView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerateActionPerformed
-        // TODO add your handling code here:
+        new passGenerator(this);
     }//GEN-LAST:event_jButtonGenerateActionPerformed
 
     /**
@@ -262,4 +262,8 @@ public class AddPasswordView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldUrl;
     private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
+
+    public void setTextFieldPassword(String text){
+        jTextFieldPassword.setText(text);
+    }
 }

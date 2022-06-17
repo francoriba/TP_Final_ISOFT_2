@@ -4,18 +4,26 @@
  */
 package View;
 
+import Interfaces.PasswordGenerator;
+import Model.ApacheGenerator;
+import Model.RandomGenerator;
+
 /**
  *
  * @author gasto
  */
 public class passGenerator extends javax.swing.JFrame {
-
+    PasswordGenerator passwordGenerator;
+    AddPasswordView addPasswordView;
     /**
      * Creates new form passGenerator
      */
-    public passGenerator() {
+    public passGenerator(AddPasswordView addPasswordView) {
+        this.addPasswordView = addPasswordView;
         initComponents();
         setLocationRelativeTo(null);
+        setVisible(true);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
     }
 
     /**
@@ -150,7 +158,13 @@ public class passGenerator extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonApacheActionPerformed
 
     private void jButtonGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerateActionPerformed
-        
+        if(jRadioButtonApache.isSelected()){
+            setPasswordGenerator(new ApacheGenerator(10));
+        }else{
+            setPasswordGenerator(new RandomGenerator(10, 10 , 10));
+        }
+        String password = passwordGenerator.generator();
+        addPasswordView.setTextFieldPassword(password);
     }//GEN-LAST:event_jButtonGenerateActionPerformed
 
     private void jRadioButtonRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRandomActionPerformed
@@ -158,41 +172,41 @@ public class passGenerator extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jRadioButtonRandomActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new passGenerator().setVisible(true);
-            }
-        });
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(passGenerator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new passGenerator().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JpassLength;
@@ -204,4 +218,8 @@ public class passGenerator extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonRandom;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    public void setPasswordGenerator(PasswordGenerator passwordGenerator){
+        this.passwordGenerator = passwordGenerator;
+    }
 }

@@ -26,8 +26,6 @@ import java.util.List;
  */
 public class InicioView extends javax.swing.JFrame {
 
-    private static int idRegistroVigente;
-
     /**
      * Creates new form Ventana
      */
@@ -42,7 +40,6 @@ public class InicioView extends javax.swing.JFrame {
         PasswordController passwordController = new PasswordController(this, passwordModel);
         KeyController keyController = new KeyController(keyModel,this);
         addNewController = new AddNewController(this);
-        idRegistroVigente = -1;
     }
 
     /**
