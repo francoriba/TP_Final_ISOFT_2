@@ -3,6 +3,7 @@ package Controller;
 import Model.BankCardModel;
 import View.InicioView;
 
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +20,7 @@ public class BankCardController implements Controller, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        DefaultTableModel modelTable = model.getModeloTabla();
+        view.setModelTable(modelTable);
     }
 }

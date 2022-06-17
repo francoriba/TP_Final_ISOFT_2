@@ -20,7 +20,7 @@ USE `bdd_borbosblock` ;
 -- -----------------------------------------------------
 -- Table `bdd_borbosblock`.`key`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`key` (
+CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`key_table` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `path` VARCHAR(45) NOT NULL,
   `key` VARCHAR(45) NOT NULL,

@@ -2,24 +2,24 @@ package Entity;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "key")
-public class KeyEntity extends RegisterEntity{
+public class KeyEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "register_id")
     private int id;
-
-    @Column(name = "path")
     private String path;
-
-    @Column(name = "key")
     private String key;
 
-    public KeyEntity(String path, String key) {
+    public KeyEntity(int id, String path, String key) {
+        this.id = id;
         this.path = path;
         this.key = key;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPath() {
