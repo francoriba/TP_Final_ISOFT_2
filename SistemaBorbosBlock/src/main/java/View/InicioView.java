@@ -4,8 +4,14 @@
  */
 package View;
 
+import Controller.BankCardController;
+import Controller.KeyController;
+import Controller.PasswordController;
 import Entity.Tipo;
 import Interfaces.Subject;
+import Model.BankCardModel;
+import Model.KeyModel;
+import Model.PasswordModel;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -26,6 +32,12 @@ public class InicioView extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        KeyModel keyModel = new KeyModel();
+        BankCardModel bankCardModel = new BankCardModel();
+        PasswordModel passwordModel = new PasswordModel();
+        BankCardController bankCardController = new BankCardController(bankCardModel, this);
+        PasswordController passwordController = new PasswordController(this, passwordModel);
+        KeyController keyController = new KeyController(keyModel,this);
         idRegistroVigente = -1;
     }
 

@@ -1,13 +1,27 @@
 package Repository;
 
 import Entity.KeyEntity;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
 public class KeyRepository implements Repository<KeyEntity>{
     @Override
     public boolean save(KeyEntity keyEntity) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.save(keyEntity);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            if(transaction != null) transaction.rollback();
+            e.printStackTrace();
+            return false;
+        }finally {
+            HibernateUtil.closeSession();
+        }
     }
 
     @Override
