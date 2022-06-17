@@ -1,10 +1,38 @@
 package Entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "password")
 public class PasswordEntity extends RegisterEntity{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "register_idp")
+    private int id;
+
+    @Column(name = "url")
     private String url;
+
+    @Column(name = "userName")
     private String user;
+
+    @Column(name = "password")
     private String password;
+
+    public PasswordEntity(int id, String url, String user, String password) {
+        this.url = url;
+        this.user = user;
+        this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUrl() {
         return url;
@@ -29,4 +57,6 @@ public class PasswordEntity extends RegisterEntity{
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }
