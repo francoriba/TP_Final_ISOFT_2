@@ -28,3 +28,6 @@ jobs:
         cache: maven
     - name: Step 3 - Build with Maven
       run: mvn -B package --file SistemaBorbosBlock/pom.xml
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1.37
+
