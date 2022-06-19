@@ -5,10 +5,13 @@ name: BorbosCI
 
 on:
   push:
-    branches: [ "main_develop" ]
+    branches: 
+    - main_develop
+    - main_test
   pull_request:
-    branches: [ "main_develop" ]
-
+    branches:
+    - main_develop
+    - main_test
 jobs:
   build:
 
@@ -25,9 +28,14 @@ jobs:
         cache: maven
     - name: Step 3 - Build with Maven
       run: mvn -B package --file SistemaBorbosBlock/pom.xml
-    - name:  Step 4 - List the current directory
-      run: ls -a
-    - name: Step 5 - What is the target folder? 
-      run: 
-        cd target
-        ls -a
+          # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+    - name: Cypress run
+      uses: cypress-io/github-action@v2
+      with:
+          build: npm run build
+          start: npm start
+    - name: Jest run
+      run: npm test
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1.37
