@@ -1,17 +1,34 @@
 package Entity;
 
-public class BankCardEntity extends RegisterEntity{
-    private String owner;
+public class BankCardEntity {
+    private int id;
+    private String entidad;
     private String number;
     private String secNumber;
     private String expirationDate;
 
-    public String getOwner() {
-        return owner;
+    public BankCardEntity(String entidad, String number, String secNumber, String expirationDate) {
+        this.id = id;
+        this.entidad = entidad;
+        this.number = number;
+        this.secNumber = secNumber;
+        this.expirationDate = expirationDate;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getEntidad() {
+        return entidad;
+    }
+
+    public void setEntidad(String entidad) {
+        this.entidad = entidad;
     }
 
     public String getNumber() {

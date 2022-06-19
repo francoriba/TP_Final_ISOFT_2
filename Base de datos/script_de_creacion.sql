@@ -18,31 +18,14 @@ CREATE SCHEMA IF NOT EXISTS `bdd_borbosblock` DEFAULT CHARACTER SET utf8 ;
 USE `bdd_borbosblock` ;
 
 -- -----------------------------------------------------
--- Table `bdd_borbosblock`.`register`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`register` (
-  `idpasswords` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(45) NOT NULL,
-  `note` VARCHAR(45) NOT NULL,
-  `modificationDate` DATE NOT NULL,
-  PRIMARY KEY (`idpasswords`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `bdd_borbosblock`.`key`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`key` (
-  `register_idpasswords` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`key_table` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
   `path` VARCHAR(45) NOT NULL,
   `key` VARCHAR(45) NOT NULL,
-  INDEX `fk_key_register1_idx` (`register_idpasswords` ASC) VISIBLE,
-  PRIMARY KEY (`register_idpasswords`),
-  CONSTRAINT `fk_key_register1`
-    FOREIGN KEY (`register_idpasswords`)
-    REFERENCES `bdd_borbosblock`.`register` (`idpasswords`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -50,17 +33,11 @@ ENGINE = InnoDB;
 -- Table `bdd_borbosblock`.`password`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`password` (
-  `register_idpasswords` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `userName` VARCHAR(45) NOT NULL,
-  INDEX `fk_password_register_idx` (`register_idpasswords` ASC) VISIBLE,
-  PRIMARY KEY (`register_idpasswords`),
-  CONSTRAINT `fk_password_register`
-    FOREIGN KEY (`register_idpasswords`)
-    REFERENCES `bdd_borbosblock`.`register` (`idpasswords`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -68,18 +45,12 @@ ENGINE = InnoDB;
 -- Table `bdd_borbosblock`.`banckCard`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`banckCard` (
-  `register_idpasswords` INT NOT NULL,
-  `owner` VARCHAR(45) NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `entidad` VARCHAR(45) NULL,
   `number` VARCHAR(16) NOT NULL,
   `secNumber` VARCHAR(3) NOT NULL,
   `expirationDate` VARCHAR(5) NOT NULL,
-  INDEX `fk_banckCard_register1_idx` (`register_idpasswords` ASC) VISIBLE,
-  PRIMARY KEY (`register_idpasswords`),
-  CONSTRAINT `fk_banckCard_register1`
-    FOREIGN KEY (`register_idpasswords`)
-    REFERENCES `bdd_borbosblock`.`register` (`idpasswords`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 

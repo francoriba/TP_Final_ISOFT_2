@@ -1,20 +1,19 @@
 package View;
 
-import Entity.Tipo;
+import Entity.TipoRegistro;
 import Interfaces.Observer;
 import Interfaces.Subject;
 
 import javax.swing.*;
-import java.util.List;
 
 public class ButtonView extends JButton implements Subject{
 
     private Observer observer; //tabla
-    private Tipo tipo;
+    private TipoRegistro tipoRegistro;
 
-    public ButtonView(Observer observer, Tipo tipo){
+    public ButtonView(Observer observer, TipoRegistro tipoRegistro){
         atach(observer);
-        this.tipo = tipo;
+        this.tipoRegistro = tipoRegistro;
     }
 
     @Override
@@ -23,7 +22,7 @@ public class ButtonView extends JButton implements Subject{
     }
 
     @Override
-    public void notifyObserver(Tipo tipo) {
-        observer.update(tipo);
+    public void notifyObserver(TipoRegistro tipoRegistro) {
+        observer.update(tipoRegistro);
     }
 }

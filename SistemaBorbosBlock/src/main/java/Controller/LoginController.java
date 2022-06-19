@@ -29,12 +29,6 @@ public class LoginController implements ActionListener{
         }else {
             view.dispose();
             InicioView inicioView = new InicioView();
-            KeyModel keyModel = new KeyModel();
-            BankCardModel bankCardModel = new BankCardModel();
-            PasswordModel passwordModel = new PasswordModel();
-            BankCardController bankCardController = new BankCardController(bankCardModel, inicioView);
-            PasswordController passwordController = new PasswordController(inicioView, passwordModel);
-            KeyController keyController = new KeyController(keyModel,inicioView);
         }
     }
 

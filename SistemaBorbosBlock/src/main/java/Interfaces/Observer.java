@@ -1,8 +1,8 @@
 package Interfaces;
 
-import Entity.Tipo;
+import Entity.TipoRegistro;
 
 //La tabla
 public interface Observer {
-    public void update(Tipo tipo);
+    public void update(TipoRegistro tipoRegistro);
 }

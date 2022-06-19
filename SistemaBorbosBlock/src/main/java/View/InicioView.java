@@ -4,9 +4,18 @@
  */
 package View;
 
-import Entity.Tipo;
+import Controller.AddNewController;
+import Controller.BankCardController;
+import Controller.KeyController;
+import Controller.PasswordController;
+import Entity.TipoRegistro;
 import Interfaces.Subject;
+import Model.BankCardModel;
+import Model.KeyModel;
+import Model.PasswordModel;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +26,6 @@ import java.util.List;
  */
 public class InicioView extends javax.swing.JFrame {
 
-    private static int idRegistroVigente;
-
     /**
      * Creates new form Ventana
      */
@@ -26,7 +33,13 @@ public class InicioView extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        idRegistroVigente = -1;
+        KeyModel keyModel = new KeyModel();
+        BankCardModel bankCardModel = new BankCardModel();
+        PasswordModel passwordModel = new PasswordModel();
+        BankCardController bankCardController = new BankCardController(bankCardModel, this);
+        PasswordController passwordController = new PasswordController(this, passwordModel);
+        KeyController keyController = new KeyController(keyModel,this);
+        addNewController = new AddNewController(this);
     }
 
     /**
@@ -41,9 +54,9 @@ public class InicioView extends javax.swing.JFrame {
         jPanelBarraSuperior = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jPanelBarraLateral = new javax.swing.JPanel();
-        jButtonPassword = new ButtonView(tablaView, Tipo.PASSWORD);
-        jButtonKeys = new ButtonView(tablaView, Tipo.KEY);
-        jButtonPayment = new ButtonView(tablaView, Tipo.PAYMENT);
+        jButtonPassword = new ButtonView(tablaView, TipoRegistro.PASSWORD);
+        jButtonKeys = new ButtonView(tablaView, TipoRegistro.KEY);
+        jButtonPayment = new ButtonView(tablaView, TipoRegistro.PAYMENT);
         jPanelFondo = new javax.swing.JPanel();
         jButtonAddNew = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -169,7 +182,11 @@ public class InicioView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddNewActionPerformed
-        // TODO add your handling code here:
+        try{
+        addNewController.open(tipoVigente);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar el registro que quiere agregar");
+        }
     }//GEN-LAST:event_jButtonAddNewActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -223,7 +240,13 @@ public class InicioView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private TablaView tablaView;
+    private TipoRegistro tipoVigente;
+    private AddNewController addNewController;
     // End of variables declaration//GEN-END:variables
+
+    public void addBtnAddListener(ActionListener actionListener){
+        jButtonAddNew.addActionListener(actionListener);
+    }
 
     public void addPasswordListener(ActionListener actionListener){
         jButtonPassword.addActionListener(actionListener);
@@ -236,5 +259,12 @@ public class InicioView extends javax.swing.JFrame {
         jButtonKeys.addActionListener(actionListener);
     }
 
+    public void setModelTable(DefaultTableModel modelTable) {
+        tablaView.setModel(modelTable);
+    }
+
+    public void setTipoVigente(TipoRegistro tipo) {
+        tipoVigente = tipo;
+    }
 
 }

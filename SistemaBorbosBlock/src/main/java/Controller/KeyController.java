@@ -1,8 +1,10 @@
 package Controller;
 
+import Entity.TipoRegistro;
 import Model.KeyModel;
 import View.InicioView;
 
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +21,8 @@ public class KeyController implements Controller, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Click en key");
+        DefaultTableModel modelTable = model.getModeloTabla();
+        view.setModelTable(modelTable);
+        view.setTipoVigente(TipoRegistro.KEY);
     }
 }
