@@ -41,12 +41,10 @@ public class AddPasswordView extends javax.swing.JFrame {
         jTextFieldPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldUrl = new javax.swing.JTextField();
-        jTextFieldEmail = new javax.swing.JTextField();
         jButtonGenerate = new javax.swing.JButton();
         Jurl = new javax.swing.JLabel();
         Juser = new javax.swing.JLabel();
         Jpassword = new javax.swing.JLabel();
-        Jemail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(250, 212, 212));
@@ -93,15 +91,6 @@ public class AddPasswordView extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldEmail.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldEmail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailActionPerformed(evt);
-            }
-        });
-
         jButtonGenerate.setBackground(new java.awt.Color(190, 22, 29));
         jButtonGenerate.setText("Generate");
         jButtonGenerate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -117,8 +106,6 @@ public class AddPasswordView extends javax.swing.JFrame {
 
         Jpassword.setText("PASSWORD:");
 
-        Jemail.setText("EMAIL:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,9 +117,6 @@ public class AddPasswordView extends javax.swing.JFrame {
                         .addComponent(Jpassword)
                         .addGap(4, 4, 4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Jemail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Jurl)
                             .addComponent(Juser))
@@ -142,7 +126,6 @@ public class AddPasswordView extends javax.swing.JFrame {
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                     .addComponent(jTextFieldUser)
                     .addComponent(jTextFieldUrl, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                     .addComponent(jButtonGenerate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(49, 49, 49))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -152,7 +135,7 @@ public class AddPasswordView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -166,11 +149,7 @@ public class AddPasswordView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jpassword))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jemail))
-                .addGap(38, 38, 38)
+                .addGap(80, 80, 80)
                 .addComponent(jButtonGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,15 +182,26 @@ public class AddPasswordView extends javax.swing.JFrame {
         jTextFieldPassword.setText("");
     }//GEN-LAST:event_jTextFieldPasswordActionPerformed
 
-    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
-        jTextFieldEmail.setText("");
-    }//GEN-LAST:event_jTextFieldEmailActionPerformed
-
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        PasswordRepository passwordRepository = new PasswordRepository();
-        PasswordEntity password = new PasswordEntity(0, jTextFieldUrl.getText(), jTextFieldUser.getText(), jTextFieldPassword.getText());
-        passwordRepository.save(password);
+        if(!checkCamposCorrectos()){
+            JOptionPane.showMessageDialog(null ,"No debe tener campos en blanco");
+        }else{
+            PasswordRepository passwordRepository = new PasswordRepository();
+            PasswordEntity password = new PasswordEntity(0, jTextFieldUrl.getText(), jTextFieldUser.getText(), jTextFieldPassword.getText());
+            passwordRepository.save(password);
+            JOptionPane.showMessageDialog(null, "Password agregado con exito");
+        }
     }//GEN-LAST:event_jButtonAddActionPerformed
+
+    /**
+     * Si alguno esta vacio devuelve falso
+     * @return
+     */
+    private boolean checkCamposCorrectos() {
+        return !jTextFieldUrl.getText().isEmpty() ||
+                jTextFieldUser.getText().isEmpty() ||
+                jTextFieldPassword.getText().isEmpty();
+    }
 
     private void jButtonGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerateActionPerformed
         new passGenerator(this);
@@ -254,7 +244,6 @@ public class AddPasswordView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Jemail;
     private javax.swing.JLabel Jpassword;
     private javax.swing.JLabel Jurl;
     private javax.swing.JLabel Juser;
@@ -262,7 +251,6 @@ public class AddPasswordView extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGenerate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldUrl;
     private javax.swing.JTextField jTextFieldUser;

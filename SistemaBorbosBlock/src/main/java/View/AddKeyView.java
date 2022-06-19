@@ -5,6 +5,11 @@
  */
 package View;
 
+import Entity.KeyEntity;
+import Repository.KeyRepository;
+
+import javax.swing.*;
+
 /**
  *
  * @author facul
@@ -32,7 +37,7 @@ public class AddKeyView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonAdd = new javax.swing.JButton();
-        jTextFieldUser = new javax.swing.JTextField();
+        jTextFieldPath = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextFielName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -56,12 +61,12 @@ public class AddKeyView extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldUser.setBackground(new java.awt.Color(239, 159, 159));
-        jTextFieldUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextFieldUser.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPath.setBackground(new java.awt.Color(239, 159, 159));
+        jTextFieldPath.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldPath.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextFieldPath.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUserActionPerformed(evt);
+                jTextFieldPathActionPerformed(evt);
             }
         });
 
@@ -110,7 +115,7 @@ public class AddKeyView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldUser)
+                            .addComponent(jTextFieldPath)
                             .addComponent(jTextFielName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))))
                 .addGap(49, 49, 49))
@@ -126,7 +131,7 @@ public class AddKeyView extends javax.swing.JFrame {
                     .addComponent(Jname))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPath, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jpath))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,17 +160,33 @@ public class AddKeyView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFielNameActionPerformed
 
-    private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
+    private void jTextFieldPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPathActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUserActionPerformed
+    }//GEN-LAST:event_jTextFieldPathActionPerformed
 
     private void jTextAreaContentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextAreaContentMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextAreaContentMouseClicked
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        // TODO add your handling code here:
+        if(!checkCamposCorrectos()){
+            JOptionPane.showMessageDialog(null ,"No debe tener campos en blanco");
+        }else{
+            KeyRepository repository = new KeyRepository();
+            KeyEntity keyEntity = new KeyEntity(0, jTextFieldPath.getText(),
+                    jTextAreaContent.getText(),
+                    jTextFielName.getText());
+            repository.save(keyEntity);
+            JOptionPane.showMessageDialog(null, "Key agregado con exito");
+        }
+
     }//GEN-LAST:event_jButtonAddActionPerformed
+
+    private boolean checkCamposCorrectos() {
+        return !jTextFieldPath.getText().isEmpty() ||
+                jTextAreaContent.getText().isEmpty() ||
+                jTextFielName.getText().isEmpty();
+    }
 
     /**
      * @param args the command line arguments
@@ -215,6 +236,6 @@ public class AddKeyView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaContent;
     private javax.swing.JTextField jTextFielName;
-    private javax.swing.JTextField jTextFieldUser;
+    private javax.swing.JTextField jTextFieldPath;
     // End of variables declaration//GEN-END:variables
 }

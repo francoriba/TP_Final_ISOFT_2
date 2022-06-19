@@ -2,7 +2,6 @@ package Repository;
 
 import Conexion.Conexion;
 import Entity.BankCardEntity;
-import Entity.PasswordEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,12 +15,13 @@ public class BankCardRepository implements Repository<BankCardEntity>{
     public boolean save(BankCardEntity bankCardEntity) {
         Connection conn = Conexion.conectar();
         try{
-            String query = "INSERT INTO password VALUES (?,?,?,?,?)";
+            String query = "INSERT INTO banckcard VALUES (?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, "0");
-            ps.setString(2, bankCardEntity.getOwner());
+            ps.setString(2, bankCardEntity.getEntidad());
             ps.setString(3, bankCardEntity.getNumber());
-            ps.setString(4, bankCardEntity.getExpirationDate());
+            ps.setString(4, bankCardEntity.getSecNumber());
+            ps.setString(5, bankCardEntity.getExpirationDate());
             ps.executeUpdate();
             conn.close();
             return true;
@@ -41,11 +41,11 @@ public class BankCardRepository implements Repository<BankCardEntity>{
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 int id = rs.getInt(1);
-                String owner = rs.getString(2);
+                String entidad = rs.getString(2);
                 String number = rs.getString(3);
                 String secNumber = rs.getString(4);
                 String dateExp  = rs.getString(5);
-                BankCardEntity card = new BankCardEntity(owner, number, secNumber, dateExp);
+                BankCardEntity card = new BankCardEntity(entidad, number, secNumber, dateExp);
                 bankCards.add(card);
             }
             cnn.close();

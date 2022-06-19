@@ -5,13 +5,23 @@ import javax.persistence.*;
 public class KeyEntity{
 
     private int id;
+    private String name;
     private String path;
     private String key;
 
-    public KeyEntity(int id, String path, String key) {
+    public KeyEntity(int id, String path, String key, String name) {
+        this.name = name;
         this.id = id;
         this.path = path;
         this.key = key;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {

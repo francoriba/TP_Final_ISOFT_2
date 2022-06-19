@@ -18,11 +18,12 @@ public class KeyRepository implements Repository<KeyEntity>{
     public boolean save(KeyEntity keyEntity) {
         Connection conn = Conexion.conectar();
         try{
-            String query = "INSERT INTO key VALUES (?,?,?)";
+            String query = "INSERT INTO key_table VALUES (?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, "0");
-            ps.setString(2, keyEntity.getPath());
-            ps.setString(3, keyEntity.getKey());
+            ps.setString(2, keyEntity.getName());
+            ps.setString(3, keyEntity.getPath());
+            ps.setString(4, keyEntity.getKey());
             ps.executeUpdate();
             conn.close();
             return true;
@@ -42,9 +43,10 @@ public class KeyRepository implements Repository<KeyEntity>{
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 int id = rs.getInt(1);
-                String path = rs.getString(2);
-                String key = rs.getString(3);
-                KeyEntity keyEntity = new KeyEntity(id, path, key);
+                String name = rs.getString(2);
+                String path = rs.getString(3);
+                String key = rs.getString(4);
+                KeyEntity keyEntity = new KeyEntity(id, path, key, name);
                 keys.add(keyEntity);
             }
             cnn.close();

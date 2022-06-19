@@ -2,14 +2,14 @@ package Entity;
 
 public class BankCardEntity {
     private int id;
-    private String owner;
+    private String entidad;
     private String number;
     private String secNumber;
     private String expirationDate;
 
-    public BankCardEntity(String owner, String number, String secNumber, String expirationDate) {
+    public BankCardEntity(String entidad, String number, String secNumber, String expirationDate) {
         this.id = id;
-        this.owner = owner;
+        this.entidad = entidad;
         this.number = number;
         this.secNumber = secNumber;
         this.expirationDate = expirationDate;
@@ -23,12 +23,12 @@ public class BankCardEntity {
         this.id = id;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getEntidad() {
+        return entidad;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setEntidad(String entidad) {
+        this.entidad = entidad;
     }
 
     public String getNumber() {

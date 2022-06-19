@@ -22,6 +22,7 @@ USE `bdd_borbosblock` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`key_table` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
   `path` VARCHAR(45) NOT NULL,
   `key` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -45,7 +46,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bdd_borbosblock`.`banckCard` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `owner` VARCHAR(45) NULL,
+  `entidad` VARCHAR(45) NULL,
   `number` VARCHAR(16) NOT NULL,
   `secNumber` VARCHAR(3) NOT NULL,
   `expirationDate` VARCHAR(5) NOT NULL,

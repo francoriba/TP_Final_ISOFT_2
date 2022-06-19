@@ -14,6 +14,7 @@ public class ApacheGenerator implements PasswordGenerator {
 
     @Override
     public String generator() {
+        StringBuilder stringBuilder = new StringBuilder();
         String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
         String specialCharacters = "!@#$";
@@ -22,15 +23,25 @@ public class ApacheGenerator implements PasswordGenerator {
         Random random = new Random();
         char[] password = new char[lenght];
 
-        password[0] = lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
-        password[1] = capitalCaseLetters.charAt(random.nextInt(capitalCaseLetters.length()));
-        password[2] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
-        password[3] = numbers.charAt(random.nextInt(numbers.length()));
-
+            password[0] = lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
+            stringBuilder.append(password[0]);
+            password[1] = capitalCaseLetters.charAt(random.nextInt(capitalCaseLetters.length()));
+            stringBuilder.append(password[1]);
+            password[2] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
+            stringBuilder.append(password[2]);
+            password[3] = numbers.charAt(random.nextInt(numbers.length()));
+            stringBuilder.append(password[3]);
         for(int i = 4; i< lenght ; i++) {
             password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
+            stringBuilder.append(password[i]);
         }
-        return password.toString();
+
+        return stringBuilder.toString();
+    }
+
+    public static void main(String[] args) {
+        ApacheGenerator apacheGenerator = new ApacheGenerator(6);
+        String hola = apacheGenerator.generator();
     }
 
 //    private static char[] generatePassword(int length) {
