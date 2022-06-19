@@ -12,7 +12,7 @@ class LoginModelTest {
     }
 
     @Test
-    //Test case ID: CPF 008
+    //Test case ID: CPA 002
     public  void LoginCredencialesIncorrectas(){
         LoginModel loginModel = new LoginModel();
         assertFalse(loginModel.iniciarSession("root","AAA"));
