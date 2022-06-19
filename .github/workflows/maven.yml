@@ -30,11 +30,6 @@ jobs:
       run: mvn -B package --file SistemaBorbosBlock/pom.xml
           # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-    - name: Cypress run
-      uses: cypress-io/github-action@v2
-      with:
-          build: npm run build
-          start: npm start
     - name: Jest run
       run: npm test
     - name: Publish Unit Test Results
