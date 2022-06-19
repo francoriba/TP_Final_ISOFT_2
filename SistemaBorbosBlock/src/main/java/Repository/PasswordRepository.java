@@ -46,7 +46,7 @@ public class PasswordRepository implements Repository<PasswordEntity>{
                 String url = rs.getString(2);
                 String password = rs.getString(3);
                 String user = rs.getString(4);
-                PasswordEntity passwordEntity = new PasswordEntity(id, url, password, user);
+                PasswordEntity passwordEntity = new PasswordEntity(id, url, user, password);
                 passwords.add(passwordEntity);
             }
             cnn.close();
