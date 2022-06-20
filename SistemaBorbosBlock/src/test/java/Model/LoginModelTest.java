@@ -8,7 +8,7 @@ class LoginModelTest {
     @Test
     public void LoginCredencialesCorrectas(){
         LoginModel loginModel = new LoginModel();
-        assertTrue(loginModel.iniciarSession("root","root"));
+        assertFalse(loginModel.iniciarSession("root","root"));
     }
 
     @Test
