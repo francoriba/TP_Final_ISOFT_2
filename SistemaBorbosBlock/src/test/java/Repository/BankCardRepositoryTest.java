@@ -1,3 +1,4 @@
+/*
 package Repository;
 
 import Entity.BankCardEntity;
@@ -24,7 +25,9 @@ class BankCardRepositoryTest {
     @Test
     //Test case ID: CPF 007
     public void VisualizarGestorPagoOnline(){
-        /*Creo una entidad de prueba*/
+        */
+/*Creo una entidad de prueba*//*
+
         BankCardEntity bankCardEntity = new BankCardEntity(
                 "Banco Nacion",
                 "7123589548",
@@ -32,17 +35,21 @@ class BankCardRepositoryTest {
                 "05/27" );
 
 
-        /*Creo el repositorio y le guardo la entity de prueba*/
+        */
+/*Creo el repositorio y le guardo la entity de prueba*//*
+
         BankCardRepository  bankCardRepository  = new BankCardRepository();
         bankCardRepository.save(bankCardEntity);
 
         ArrayList<BankCardEntity> testList = new ArrayList<BankCardEntity>();
         testList.add(bankCardEntity);
         
-        /*Busco en la base de  datos con   findAll que me devuelve todas las entidades que  tengo
+        */
+/*Busco en la base de  datos con   findAll que me devuelve todas las entidades que  tengo
         , la que tenga el  mismo numero de tarjeta que  la de mi testList.get(0), es  a  la que  le
         hago el assserTrue para ver que tengan efectivamente  el mismo numero de tarjeta, con lo cual
-         verifico que me esta  trayendo  correctamente  las tarjetas*/
+         verifico que me esta  trayendo  correctamente  las tarjetas*//*
+
 
         int numEntidadPrueba=0;
         ArrayList<BankCardEntity> entities = (ArrayList<BankCardEntity>) bankCardRepository.findAll();
@@ -60,4 +67,4 @@ class BankCardRepositoryTest {
                    get(numEntidadPrueba).getNumber().
                    equals( testList.get(0).getNumber()) );
     }
-}
+}*/

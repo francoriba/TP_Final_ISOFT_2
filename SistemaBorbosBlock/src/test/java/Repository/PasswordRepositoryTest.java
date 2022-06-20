@@ -1,3 +1,4 @@
+/*
 package Repository;
 
 import Entity.PasswordEntity;
@@ -31,4 +32,4 @@ class PasswordRepositoryTest {
 
 
 
-}
+}*/
