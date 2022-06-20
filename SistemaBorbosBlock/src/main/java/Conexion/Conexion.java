@@ -18,7 +18,7 @@ public class Conexion {
     //Conexión Local
     public static Connection conectar(){
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bdd_borbosblock", "root", "toor");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bdd_borbosblock", "root", "root");
             return cn;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,"Error de conexion: "+ e.toString());
