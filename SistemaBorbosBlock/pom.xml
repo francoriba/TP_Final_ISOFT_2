@@ -64,7 +64,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                    <forkMode>never</forkMode>
+                    <skipAfterFailureCount>1</skipAfterFailureCount>
                 </configuration>
             </plugin>
             <plugin>
